@@ -160,6 +160,9 @@ vim.opt.scrolloff = 10
 -- Reload nvim config
 vim.keymap.set('n', '<leader>R', ':luafile $MYVIMRC<CR>', { desc = 'Reload nvim config' })
 
+-- Save Without Format
+vim.keymap.set('n', '<leader>fs', ':noa w<CR>', { desc = 'Save without format' })
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
