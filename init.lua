@@ -179,6 +179,30 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Run test
+vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>lua require("neotest").run.run()<CR>', { desc = 'Run the nearest test', noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>tf',
+  '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
+  { desc = 'Run the current file', noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>td',
+  '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>',
+  { desc = 'Debug the nearest test', noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap('n', '<leader>ts', '<cmd>lua require("neotest").run.stop()<CR>', { desc = 'Stop', noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>to', '<cmd>lua require("neotest").output.open()<CR>', { desc = 'Open output', noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tts', '<cmd>lua require("neotest").summary.toggle()<CR>', { desc = 'Toggle summary', noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>ttp',
+  '<cmd>lua require("neotest").output_panel.toggle()<CR>',
+  { desc = 'Toggle output panel', noremap = true, silent = true }
+)
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -299,6 +323,7 @@ require('lazy').setup({
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>f'] = { name = '[F]ile', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]est', _ = 'which_key_ignore' },
       }
     end,
   },
