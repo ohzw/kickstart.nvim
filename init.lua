@@ -203,6 +203,9 @@ vim.api.nvim_set_keymap(
   { desc = 'Toggle output panel', noremap = true, silent = true }
 )
 
+-- Diffview
+vim.api.nvim_set_keymap('n', '<leader>Gd', ':DiffviewOpen<CR>', { desc = 'Open diffview' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -328,6 +331,7 @@ require('lazy').setup({
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>f'] = { name = '[F]ile', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]est', _ = 'which_key_ignore' },
+        ['<leader>G'] = { name = '[G]it', _ = 'which_key_ignore' },
       }
     end,
   },
@@ -898,6 +902,7 @@ require('lazy').setup({
   require 'kickstart.plugins.multi_cursor',
   require 'kickstart.plugins.scroll',
   require 'kickstart.plugins.test',
+  require 'kickstart.plugins.diffview',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
