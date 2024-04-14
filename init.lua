@@ -173,6 +173,15 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Open file tree
 vim.keymap.set('n', '<leader>n', ':Neotree toggle<Return>', { desc = 'Open file tree' })
 
+-- GitLinker
+vim.api.nvim_set_keymap('v', '<leader>gy', '<cmd>lua require"gitlinker".get_buf_range_url()<cr>', { desc = 'Copy remote (web) url' })
+vim.api.nvim_set_keymap(
+  'v',
+  '<leader>gb',
+  '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+  { desc = 'Open on remote (web)' }
+)
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -915,6 +924,7 @@ require('lazy').setup({
   require 'kickstart.plugins.diffview',
   require 'kickstart.plugins.tmux',
   require 'kickstart.plugins.notice',
+  require 'kickstart.plugins.gitlinker',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
