@@ -52,6 +52,8 @@ return {
       --   }
       -- end,
     }
-    vim.cmd [[colorscheme dracula]]
+
+    -- setup must be called before loading
+    vim.cmd.colorscheme 'dracula'
   end,
 }
