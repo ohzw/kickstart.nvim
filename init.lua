@@ -835,6 +835,33 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      require('mini.sessions').setup {
+        -- Whether to read latest session if Neovim opened without file arguments
+        autoread = false,
+
+        -- Whether to write current session before quitting Neovim
+        autowrite = true,
+
+        -- Directory where global sessions are stored (use `''` to disable)
+        directory = '~/.config/nvim/global_session', --<"session" subdir of user data directory from |stdpath()|>,
+
+        -- File for local session (use `''` to disable)
+        file = 'Session.vim',
+
+        -- Whether to force possibly harmful actions (meaning depends on function)
+        force = { read = false, write = true, delete = false },
+
+        -- Hook functions for actions. Default `nil` means 'do nothing'.
+        hooks = {
+          -- Before successful action
+          pre = { read = nil, write = nil, delete = nil },
+          -- After successful action
+          post = { read = nil, write = nil, delete = nil },
+        },
+
+        -- Whether to print session path after action
+        verbose = { read = false, write = true, delete = true },
+      }
       require('mini.starter').setup {
         -- Whether to open starter buffer on VimEnter. Not opened if Neovim was
         -- started with intent to show something else.
@@ -881,7 +908,7 @@ require('lazy').setup({
         -- Footer to be displayed after items. Converted to single string via
         -- `tostring` (use `\n` to display several lines). If function, it is
         -- evaluated first. If `nil` (default), default usage help will be shown.
-        footer = nil,
+        footer = [[]],
 
         -- Array  of functions to be applied consecutively to initial content.
         -- Each function should take and return content for 'Starter' buffer (see

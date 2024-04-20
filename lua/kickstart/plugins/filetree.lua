@@ -15,6 +15,7 @@ return {
       vim.fn.sign_define('DiagnosticSignHint', { text = '󰌵', texthl = 'DiagnosticSignHint' })
 
       require('neo-tree').setup {
+        auto_clean_after_session_restore = true, -- Automatically clean up broken neo-tree buffers saved in sessions
         close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
         popup_border_style = 'rounded',
         enable_git_status = true,
