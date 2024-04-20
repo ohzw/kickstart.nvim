@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = { 'nvim-tree/nvim-web-devicons', 'arkav/lualine-lsp-progress' },
   config = function()
     require('lualine').setup {
       options = {
@@ -26,8 +26,8 @@ return {
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' },
+        lualine_y = { 'lsp_progress' },
+        lualine_z = { 'progress', 'location' },
       },
       inactive_sections = {
         lualine_a = {},
