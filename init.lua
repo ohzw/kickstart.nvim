@@ -606,7 +606,15 @@ require('lazy').setup({
         -- tsserver = {},
         --
 
+        -- typescript
         tsserver = {},
+
+        -- golang
+        gopls = {},
+        goimports = {},
+        gofumpt = {},
+
+        -- vue
         volar = {
           filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
           init_options = {
@@ -705,6 +713,7 @@ require('lazy').setup({
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
         vue = { 'prettierd', 'eslint' },
+        go = { 'goimports', 'gofumpt' },
       },
     },
   },
