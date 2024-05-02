@@ -629,9 +629,9 @@ require('lazy').setup({
             json = { schemas = require 'kickstart.schema-catalog' },
           },
         },
-        biome = {
-          filetypes = { 'javascript', 'javascriptreact', 'json', 'jsonc', 'typescript', 'typescript.tsx', 'typescriptreact', 'astro', 'svelte', 'vue' },
-        },
+        -- biome = {
+        --   filetypes = { 'javascript', 'javascriptreact', 'json', 'jsonc', 'typescript', 'typescript.tsx', 'typescriptreact', 'astro', 'svelte', 'vue' },
+        -- },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
