@@ -160,8 +160,8 @@ vim.opt.scrolloff = 10
 -- Reload nvim config
 vim.keymap.set('n', '<leader>R', ':luafile $MYVIMRC<CR>', { desc = 'Reload nvim config' })
 
--- Save without format
-vim.keymap.set('n', '<leader>fs', ':noa w<CR>', { desc = 'Save without format' })
+-- -- Save without format
+-- vim.keymap.set('n', '<leader>fs', ':noa w<CR>', { desc = 'Save without format' })
 
 -- Code action
 vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action, { desc = 'Code action' })
@@ -338,7 +338,7 @@ require('lazy').setup({
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = '[F]ile', _ = 'which_key_ignore' },
+        ['<leader>f'] = { name = '[F]ormatter', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]est', _ = 'which_key_ignore' },
         ['<leader>G'] = { name = '[G]it', _ = 'which_key_ignore' },
       }
@@ -593,10 +593,6 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -616,7 +612,8 @@ require('lazy').setup({
 
         -- vue
         volar = {
-          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+          -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+          filetyeps = { 'vue' },
           init_options = {
             vue = {
               hybridMode = false,
@@ -684,17 +681,43 @@ require('lazy').setup({
     lazy = false,
     keys = {
       {
-        '<leader>f',
+        '<leader>ff',
         function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = 'Format buffer',
+      },
+      {
+        '<leader>fs',
+        ':noa w<CR>',
+        mode = '',
+        desc = 'Save without format',
+      },
+      {
+        '<leader>fd',
+        function()
+          vim.g.disable_autoformat = true
+        end,
+        mode = '',
+        desc = 'autoformat-on-save - Disable',
+      },
+      {
+        '<leader>fe',
+        function()
+          vim.g.disable_autoformat = false
+        end,
+        mode = '',
+        desc = 'autoformat-on-save - Enable',
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = function(bufnr)
+        if vim.g.disable_autoformat then
+          return
+        end
+
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
