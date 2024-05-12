@@ -607,6 +607,10 @@ require('lazy').setup({
         -- tsserver = {},
         --
 
+        cspell = {},
+
+        eslint = {},
+
         -- typescript
         tsserver = {},
 
@@ -739,9 +743,9 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { 'prettierd', 'eslint' },
-        typescript = { 'prettierd', 'eslint' },
-        vue = { 'prettierd', 'eslint' },
+        javascript = { { 'prettiered', 'pretter' } },
+        typescript = { { 'prettiered', 'pretter' } },
+        vue = { { 'prettiered', 'pretter' } },
         go = { 'goimports', 'gofumpt' },
       },
     },
