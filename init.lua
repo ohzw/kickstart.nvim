@@ -899,7 +899,7 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      -- require('mini.surround').setup()
 
       require('mini.sessions').setup {
         -- Whether to read latest session if Neovim opened without file arguments
@@ -1058,6 +1058,7 @@ require('lazy').setup({
   require 'kickstart.plugins.gitlinker',
   require 'kickstart.plugins.lualine',
   require 'kickstart.plugins.gitsigns',
+  require 'kickstart.plugins.leap',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
