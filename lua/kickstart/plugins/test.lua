@@ -7,6 +7,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
 
     'nvim-neotest/neotest-go',
+    'nvim-neotest/neotest-jest',
   },
   config = function()
     -- get neotest namespace (api call creates or returns namespace)
@@ -22,6 +23,7 @@ return {
     require('neotest').setup {
       adapters = {
         require 'neotest-go',
+        require 'neotest-jest',
       },
     }
   end,
