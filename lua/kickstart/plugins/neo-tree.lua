@@ -15,6 +15,19 @@ return {
       vim.fn.sign_define('DiagnosticSignHint', { text = '󰌵', texthl = 'DiagnosticSignHint' })
 
       require('neo-tree').setup {
+        sources = { 'filesystem', 'buffers', 'git_status', 'diagnostics' },
+        source_selector = {
+          winbar = true, -- toggle to show selector on winbar
+          content_layout = 'center',
+          tabs_layout = 'equal',
+          show_separator_on_edge = true,
+          sources = {
+            { source = 'filesystem', display_name = '󰉓' },
+            { source = 'buffers', display_name = '󰈙' },
+            { source = 'git_status', display_name = '' },
+            { source = 'diagnostics', display_name = '󰒡' },
+          },
+        },
         auto_clean_after_session_restore = true, -- Automatically clean up broken neo-tree buffers saved in sessions
         close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
         popup_border_style = 'rounded',
