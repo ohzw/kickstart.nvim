@@ -51,6 +51,11 @@ return {
       --     NonText = { fg = colors.white }, -- set NonText fg to white of theme
       --   }
       -- end,
+      require('lualine').setup {
+        options = {
+          theme = 'dracula-nvim',
+        },
+      },
     }
 
     -- setup must be called before loading
