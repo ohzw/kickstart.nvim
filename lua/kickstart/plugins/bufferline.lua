@@ -6,6 +6,7 @@ return {
     config = function()
       require('bufferline').setup {
         options = {
+          separator_style = 'slant',
           --   indicator = {
           --     icon = '▎', -- this should be omitted if indicator style is not 'icon'
           --     style = 'icon',
@@ -28,6 +29,7 @@ return {
               separator = true,
             },
           },
+          diagnostics = 'nvim_lsp',
           diagnostics_indicator = function(count, level, diagnostics_dict, context)
             local s = ' '
             for e, n in pairs(diagnostics_dict) do
