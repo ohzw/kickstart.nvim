@@ -40,7 +40,7 @@ return {
           underline_visible = false,
         },
         indent_blankline = {
-          context_highlight = 'default', -- default | pro
+          context_highlight = 'pro', -- default | pro
           context_start_underline = false,
         },
       },
