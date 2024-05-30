@@ -1047,6 +1047,7 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.themes.rose-pine',
+  require 'kickstart.plugins.themes.transparent',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
