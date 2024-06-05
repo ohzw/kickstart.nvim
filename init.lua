@@ -215,6 +215,9 @@ vim.api.nvim_set_keymap(
 -- Diffview
 vim.api.nvim_set_keymap('n', '<leader>Gd', ':DiffviewOpen<CR>', { desc = 'Open diffview' })
 
+-- Neoclip (clipboard history)
+vim.api.nvim_set_keymap('n', '"', ':Telescope neoclip<Return>', { desc = 'Clipboard history' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -1064,6 +1067,7 @@ require('lazy').setup({
   require 'kickstart.plugins.leap',
   require 'kickstart.plugins.dropbar',
   require 'kickstart.plugins.bufferline',
+  require 'kickstart.plugins.neoclip',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
