@@ -409,7 +409,11 @@ require('lazy').setup({
             },
           },
         },
-        -- pickers = {}
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -1049,7 +1053,7 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  require 'kickstart.plugins.themes.rose-pine',
+  require 'kickstart.plugins.themes.cappuccin',
   require 'kickstart.plugins.themes.transparent',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
