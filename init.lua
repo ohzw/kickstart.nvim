@@ -391,6 +391,7 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local lga_actions = require 'telescope-live-grep-args.actions'
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -414,6 +415,9 @@ require('lazy').setup({
               preview_cutoff = 120,
             },
           },
+          mappings = {
+            i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          },
         },
         pickers = {
           colorscheme = {
@@ -423,6 +427,22 @@ require('lazy').setup({
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
+          },
+          ['live_grep_args'] = {
+            auto_quoting = true, -- enable/disable auto-quoting
+            -- define mappings, e.g.
+            mappings = { -- extend mappings
+              i = {
+                ['<C-k>'] = lga_actions.quote_prompt(),
+                ['<C-i>'] = lga_actions.quote_prompt { postfix = ' --iglob ' },
+                -- freeze the current list and start a fuzzy search in the frozen list
+                -- ['<C-space>'] = require('telescope-live-grep-args').actions.to_fuzzy_refine,
+              },
+            },
+            -- ... also accepts theme settings, for example:
+            -- theme = "dropdown", -- use dropdown theme
+            -- theme = { }, -- use own theme spec
+            -- layout_config = { mirror=true }, -- mirror preview pane
           },
         },
       }
