@@ -662,7 +662,7 @@ require('lazy').setup({
 
         cspell = {},
 
-        eslint = {},
+        eslint_d = {},
 
         -- typescript
         tsserver = {},

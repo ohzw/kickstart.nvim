@@ -7,10 +7,10 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint', 'cspell' },
-        javascript = { 'eslint', 'cspell' },
-        typescript = { 'eslint', 'cspell' },
-        javascriptreact = { 'eslint', 'cspell' },
-        typescriptreact = { 'eslint', 'cspell' },
+        javascript = { 'eslint_d', 'cspell' },
+        typescript = { 'eslint_d', 'cspell' },
+        javascriptreact = { 'eslint_d', 'cspell' },
+        typescriptreact = { 'eslint_d', 'cspell' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
