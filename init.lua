@@ -438,6 +438,7 @@ require('lazy').setup({
                 ['<C-i>'] = lga_actions.quote_prompt { postfix = ' --iglob ' },
               },
             },
+            theme = 'ivy',
             -- ... also accepts theme settings, for example:
             -- theme = "dropdown", -- use dropdown theme
             -- theme = { }, -- use own theme spec
