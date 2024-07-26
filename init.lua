@@ -1085,6 +1085,7 @@ require('lazy').setup({
   require 'kickstart.plugins.themes.cappuccin',
   require 'kickstart.plugins.themes.transparent',
   require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lspsaga',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.indent_line',
