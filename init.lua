@@ -169,6 +169,12 @@ vim.keymap.set('n', '<leader>R', ':luafile $MYVIMRC<CR>', { desc = 'Reload nvim 
 -- Code action
 vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action, { desc = 'Code action' })
 
+-- Hover
+vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
+
+-- Diagnostic
+vim.keymap.set('n', 'e', '<cmd>Lspsaga diagnostic_jump_next<CR>')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
