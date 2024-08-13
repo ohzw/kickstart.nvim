@@ -175,6 +175,10 @@ vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
 -- Diagnostic
 vim.keymap.set('n', 'e', '<cmd>Lspsaga diagnostic_jump_next<CR>')
 
+-- peek definition
+vim.keymap.set('n', '<leader>pd', '<cmd>Lspsaga peek_definition<CR>')
+vim.keymap.set('n', '<leader>pt', '<cmd>Lspsaga peek_type_definition<CR>')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
