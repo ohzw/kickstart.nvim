@@ -175,7 +175,7 @@ vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action, { desc = 'Code action'
 vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
 
 -- Diagnostic
-vim.keymap.set('n', 'e', '<cmd>Lspsaga diagnostic_jump_next<CR>')
+vim.keymap.set('n', '<space>e', '<cmd>Lspsaga show_line_diagnostics<CR>', { noremap = true, silent = true })
 
 -- peek definition
 vim.keymap.set('n', '<leader>pd', '<cmd>Lspsaga peek_definition<CR>')
