@@ -361,7 +361,7 @@ require('lazy').setup({
       },
 
       -- Document existing key chains
-      require('which-key').add {
+      spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>C', group = '[C]opilot' },
         { '<leader>d', group = '[D]ocument' },
@@ -733,7 +733,7 @@ require('lazy').setup({
         eslint_d = {},
 
         -- typescript
-        tsserver = {},
+        -- tsserver = {},
 
         -- golang
         gopls = {},
