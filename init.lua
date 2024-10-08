@@ -189,7 +189,7 @@ vim.keymap.set('n', '<leader>pt', '<cmd>Lspsaga peek_type_definition<CR>')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Open file tree
-vim.keymap.set('n', '<leader>n', ':Neotree toggle<Return>', { desc = 'Open file tree' })
+vim.keymap.set('n', '<leader>n', ':Neotree toggle<Return>', { desc = 'Open file tree', silent = true })
 
 -- GitLinker
 vim.api.nvim_set_keymap('v', '<leader>gy', '<cmd>lua require"gitlinker".get_buf_range_url()<cr>', { desc = 'Copy remote url (web)' })

@@ -8,19 +8,19 @@ return {
       'MunifTanjim/nui.nvim',
       'mrbjarksen/neo-tree-diagnostics.nvim',
     },
-    cmd = 'Neotree',
-    keys = {
-      { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
-    },
-    opts = {
-      filesystem = {
-        window = {
-          mappings = {
-            ['\\'] = 'close_window',
-          },
-        },
-      },
-    },
+    -- cmd = 'Neotree',
+    -- keys = {
+    --   { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    -- },
+    -- opts = {
+    --   filesystem = {
+    --     window = {
+    --       mappings = {
+    --         ['\\'] = 'close_window',
+    --       },
+    --     },
+    --   },
+    -- },
     config = function()
       -- If you want icons for diagnostic errors, you'll need to define them somewhere:
       vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
