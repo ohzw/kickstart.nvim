@@ -171,6 +171,9 @@ vim.keymap.set('n', '<leader>R', ':luafile $MYVIMRC<CR>', { desc = 'Reload nvim 
 -- Code action
 vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action, { desc = 'Code action' })
 
+-- Copilot toggle suggestion auto trigger
+vim.keymap.set('n', '<leader>Ct', '<cmd>lua require("copilot.suggestion").toggle_auto_trigger()<CR>', { desc = 'Toggle suggestion auto trigger' })
+
 -- Hover
 vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
 
@@ -325,6 +328,7 @@ require('lazy').setup({
       -- Document existing key chains
       require('which-key').add {
         { '<leader>c', group = '[C]ode' },
+        { '<leader>C', group = '[C]opilot' },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
@@ -408,6 +412,18 @@ require('lazy').setup({
         --   },
         -- },
         defaults = {
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            '--trim',
+            '--multiline',
+          },
           layout_config = {
             horizontal = {
               height = 0.8,
