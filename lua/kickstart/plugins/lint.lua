@@ -7,10 +7,30 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint', 'cspell' },
-        javascript = { 'eslint_d', 'cspell' },
-        typescript = { 'eslint_d', 'cspell' },
-        javascriptreact = { 'eslint_d', 'cspell' },
-        typescriptreact = { 'eslint_d', 'cspell' },
+        -- javascript = { 'biomejs', 'eslint_d', 'cspell' },
+        -- typescript = { 'biomejs', 'eslint_d', 'cspell' },
+        -- javascriptreact = { 'biomejs', 'eslint_d', 'cspell' },
+        -- typescriptreact = { 'biomejs', 'eslint_d', 'cspell' },
+        javascript = { 'biomejs', 'cspell' },
+        typescript = { 'biomejs', 'cspell' },
+        javascriptreact = { 'biomejs', 'cspell' },
+        typescriptreact = { 'biomejs', 'cspell' },
+        -- javascript = { 'eslint_d', 'cspell' },
+        -- typescript = { 'eslint_d', 'cspell' },
+        -- javascriptreact = { 'eslint_d', 'cspell' },
+        -- typescriptreact = { 'eslint_d', 'cspell' },
+        proto = {},
+      }
+
+      lint.linters.eslint_d.args = {
+        '--no-warn-ignored', -- <-- this is the key argument
+        '--format',
+        'json',
+        '--stdin',
+        '--stdin-filename',
+        function()
+          return vim.api.nvim_buf_get_name(0)
+        end,
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
