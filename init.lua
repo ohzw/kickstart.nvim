@@ -733,7 +733,7 @@ require('lazy').setup({
         eslint_d = {},
 
         -- typescript
-        -- tsserver = {},
+        ts_ls = {},
 
         -- golang
         gopls = {},
@@ -876,12 +876,20 @@ require('lazy').setup({
 
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-        typescript = { { 'prettierd', 'prettier' } },
-        typescriptreact = { { 'prettierd', 'prettier' } },
-        javascript = { { 'prettierd', 'prettier' } },
-        javascriptreact = { { 'prettierd', 'prettier' } },
-        vue = { { 'prettiered', 'pretter' } },
+        typescript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+        typescriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+        javascript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+        javascriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+        vue = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
         go = { 'goimports', 'gofumpt' },
+      },
+
+      formatters = {
+        biome = {
+          command = 'biome check',
+          args = { 'check', '--fix', '--stdin-file-path', '$FILENAME' },
+          stdin = true,
+        },
       },
     },
   },
