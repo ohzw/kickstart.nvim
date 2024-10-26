@@ -1006,6 +1006,13 @@ require('lazy').setup({
           { name = 'luasnip' },
           { name = 'path' },
         },
+        formatting = {
+          fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr, cmp.ItemField.Menu },
+          expandable_indicator = true,
+          format = function(entry, item)
+            return require('nvim-highlight-colors').format(entry, item)
+          end,
+        },
       }
     end,
   },
@@ -1183,6 +1190,7 @@ require('lazy').setup({
   require 'kickstart.plugins.gitlinker',
   require 'kickstart.plugins.lualine',
   require 'kickstart.plugins.gitsigns',
+  require 'kickstart.plugins.highlight_colors',
   require 'kickstart.plugins.leap',
   require 'kickstart.plugins.dropbar',
   require 'kickstart.plugins.bufferline',
