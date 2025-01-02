@@ -189,7 +189,7 @@ vim.keymap.set('n', '<leader>pt', '<cmd>Lspsaga peek_type_definition<CR>')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Open file tree
-vim.keymap.set('n', '<leader>n', ':Neotree toggle<Return>', { desc = 'Open file tree', silent = true })
+vim.keymap.set('n', '<leader>n', ':Neotree toggle reveal position=float<Return>', { desc = 'Open file tree', silent = true })
 
 -- GitLinker
 vim.api.nvim_set_keymap('v', '<leader>gy', '<cmd>lua require"gitlinker".get_buf_range_url()<cr>', { desc = 'Copy remote url (web)' })
@@ -740,6 +740,15 @@ require('lazy').setup({
         goimports = {},
         gofumpt = {},
 
+        -- python
+        pyright = {
+          settings = {
+            analysis = {
+              typeCheckingMode = 'basic',
+            },
+          },
+        },
+
         -- vue
         volar = {
           -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
@@ -761,6 +770,8 @@ require('lazy').setup({
         },
 
         bufls = {},
+
+        terraformls = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -792,6 +803,13 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'prettierd',
+
+        -- python
+        'ruff',
+        'ruff_lsp',
+        'pyright', -- lsp
+        'black', -- コードフォーマッタ
+        'isort', -- import フォーマッタ
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -1196,7 +1214,7 @@ require('lazy').setup({
   require 'kickstart.plugins.bufferline',
   require 'kickstart.plugins.neoclip',
   require 'kickstart.plugins.outline',
-  require 'kickstart.plugins.copilot',
+  -- require 'kickstart.plugins.copilot',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

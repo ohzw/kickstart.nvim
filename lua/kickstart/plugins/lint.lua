@@ -20,6 +20,8 @@ return {
         -- javascriptreact = { 'eslint_d', 'cspell' },
         -- typescriptreact = { 'eslint_d', 'cspell' },
         proto = {},
+        terraform = { 'tflint' },
+        python = { 'flake8' },
       }
 
       lint.linters.eslint_d.args = {
